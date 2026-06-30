@@ -51,6 +51,7 @@ type Features struct {
 	EnableTaintTolerationComparisonOperators      bool
 	EnableInPlacePodLevelResourcesVerticalScaling bool
 	EnableTopologyAwareWorkloadScheduling         bool
+	EnableInterPodAffinityHostnameFastPath        bool
 }
 
 // NewSchedulerFeaturesFromGates copies the current state of the feature gates into the struct.
@@ -82,5 +83,6 @@ func NewSchedulerFeaturesFromGates(featureGate featuregate.FeatureGate) Features
 		EnableInPlacePodLevelResourcesVerticalScaling: featureGate.Enabled(features.InPlacePodLevelResourcesVerticalScaling),
 		EnableTopologyAwareWorkloadScheduling:         featureGate.Enabled(features.TopologyAwareWorkloadScheduling),
 		EnableDRANodeAllocatableResources:             featureGate.Enabled(features.DRANodeAllocatableResources),
+		EnableInterPodAffinityHostnameFastPath:        featureGate.Enabled(features.InterPodAffinityHostnameFastPath),
 	}
 }
